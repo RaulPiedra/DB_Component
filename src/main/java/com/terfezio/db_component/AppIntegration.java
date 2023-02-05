@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class AppDBTable extends Application {
+public class AppIntegration extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("Integration.fxml"));
@@ -21,3 +21,4 @@ public class AppDBTable extends Application {
         launch();
     }
 }
+
