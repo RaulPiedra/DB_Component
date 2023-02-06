@@ -38,50 +38,6 @@ public class ComponentDB_TABLE_Controller {
         tableColumns = new HashMap<>();
 
         data = FXCollections.observableArrayList();
-        //rows = new ArrayList<>();
-        /*columns.add("col1");
-        columns.add("col2");
-        columns.add("col3");
-
-        String[] row1 = {"val1", "val2"};
-        String[] row2 = {"val2", "val4"};
-        rows.add(row1);
-        rows.add(row2);
-
-        setUpColumnsList();
-
-        setCheckBoxesAction();
-
-        setUpRows();*/
-
-        /*
-        columns.add("col1");
-        columns.add("col2");
-        columns.add("col3");
-
-        ArrayList<String> row1 = new ArrayList<>();
-        row1.add("1");
-        row1.add("2");
-        row1.add("3");
-
-        ArrayList<String> row2 = new ArrayList<>();
-        row2.add("1");
-        row2.add("2");
-        row2.add("3");
-
-        //List[] rows = {row1, row2};
-        rows = new ArrayList<>() ;
-        rows.add(row1);
-        rows.add(row2);
-
-        setUpColumnsList();
-
-        setCheckBoxesAction();
-
-        setUpRows();
-
-         */
-
     }
 
     public void setCheckBoxesAction() {
@@ -105,19 +61,8 @@ public class ComponentDB_TABLE_Controller {
     }
 
     public void setUpRows() {
-        for (List<String> row : rows) {
-            /*for (int i = 0; i < row.length; i++) {
-                String columnName = checkBoxes.get(i).getText();
-                System.out.println(columnName);
-                //tableColumns.get(columnName).getItems().add(row[i]);
-            }
 
-             */
-
-            data.add(row);
-
-
-        }
+        data.addAll(rows);
         tableView.setItems(data);
 
     }
@@ -126,9 +71,7 @@ public class ComponentDB_TABLE_Controller {
         columns = columnsString;
     }
 
-    /*public void setRows(ArrayList<String[]> rowsList) {
-        rows = rowsList;
-    }*/
+
     public void setUpColumnsList() {
         for (int i= 0; i < columns.size(); i++) {
             CheckBox checkBox = new CheckBox(columns.get(i));
@@ -139,12 +82,7 @@ public class ComponentDB_TABLE_Controller {
             tableColumns.put(columns.get(i), tableColumn);
             tableView.getColumns().add(tableColumn);
             int finalI = i;
-            tableColumn.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<List<String>, String>, ObservableValue<String>>() {
-                @Override
-                public ObservableValue<String> call(TableColumn.CellDataFeatures<List<String>, String> listStringCellDataFeatures) {
-                    return new ReadOnlyStringWrapper(listStringCellDataFeatures.getValue().get(finalI));
-                }
-            });
+            tableColumn.setCellValueFactory(listStringCellDataFeatures -> new ReadOnlyStringWrapper(listStringCellDataFeatures.getValue().get(finalI)));
 
         }
     }
