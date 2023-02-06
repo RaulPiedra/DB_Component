@@ -43,22 +43,21 @@ public class DBInterface {
         }
         return columns;
     }
-    public ArrayList<String[]> getTableRows(String tableName) throws SQLException {
+    public ArrayList<ArrayList<String>> getTableRows(String tableName) throws SQLException {
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery("SELECT * FROM " + tableName + ";");
         ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 
         int columnCount = resultSetMetaData.getColumnCount();
 
-
-
-        ArrayList<String[]> rows = new ArrayList<>();
+        ArrayList<ArrayList<String>> rows = new ArrayList<>();
 
         while (resultSet.next()) {
 
-            String[] row = new String[columnCount];
+            ArrayList<String> row = new ArrayList<>();
+            //String[] row = new String[columnCount];
             for (int j = 0; j < columnCount; j++) {
-                row[j] =  resultSet.getObject(j+1).toString();
+                row.add(resultSet.getObject(j+1).toString());
 
             }
             rows.add(row);

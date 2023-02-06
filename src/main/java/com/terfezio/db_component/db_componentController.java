@@ -5,10 +5,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class db_componentController {
     private DBInterface dbInterface;
@@ -16,9 +18,16 @@ public class db_componentController {
     @FXML private TextField textFieldJDBC;
     @FXML private Button buttonConnect;
     @FXML private Button buttonLoad;
+    private List<String> columns;
+    @FXML private TableView<List<String>> tableView;
     public void initialize() {
         buttonLoad.setDisable(true);
     }
+    public void setUpColumns() throws SQLException {
+
+        columns = dbInterface.getColumns(choiceBoxTable.getSelectionModel().getSelectedItem());
+    }
+
     public void connect(ActionEvent actionEvent) {
         String urlConnection = textFieldJDBC.getText();
         try {

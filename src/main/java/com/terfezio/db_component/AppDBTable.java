@@ -10,7 +10,7 @@ import java.io.IOException;
 public class AppDBTable extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("Integration.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ComponentDB_TABLE.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 640, 400);
         stage.setTitle("Hello!");
         stage.setScene(scene);

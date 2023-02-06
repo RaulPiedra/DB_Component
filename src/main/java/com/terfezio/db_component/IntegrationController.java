@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 public class IntegrationController {
     @FXML private ComponentDBController dbComponentController;
+
     @FXML private ComponentDB_TABLE_Controller tableComponentController;
     private DBInterface dbInterface;
     public void connectDB(ActionEvent actionEvent) throws SQLException {
@@ -14,6 +15,7 @@ public class IntegrationController {
         dbInterface = new DBInterface(urlConnection);
         dbComponentController.setTables(dbInterface.getTables());
         dbComponentController.loadTables();
+
     }
 
     public void loadTable(ActionEvent actionEvent) throws SQLException {

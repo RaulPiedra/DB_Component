@@ -13,8 +13,8 @@ public class Main {
             for(String column: columns) {
                 System.out.println(column);
             }
-            ArrayList<String[]> tableRows = dbInterface.getTableRows("usuario");
-            for (String[] row: tableRows) {
+            ArrayList<ArrayList<String>> tableRows = dbInterface.getTableRows("usuario");
+            for (ArrayList<String> row: tableRows) {
                 for (String data: row) {
                     System.out.print(data + " ");
                 }
