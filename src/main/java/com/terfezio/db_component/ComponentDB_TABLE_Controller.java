@@ -62,6 +62,7 @@ public class ComponentDB_TABLE_Controller {
 
     public void setUpRows() {
 
+        tableView.getItems().clear();
         data.addAll(rows);
         tableView.setItems(data);
 
@@ -73,6 +74,7 @@ public class ComponentDB_TABLE_Controller {
 
 
     public void setUpColumnsList() {
+        tableView.getColumns().clear();
         for (int i= 0; i < columns.size(); i++) {
             CheckBox checkBox = new CheckBox(columns.get(i));
             checkBoxes.add(checkBox);
