@@ -13,9 +13,17 @@ public class ComponentDBController {
     private ChoiceBox<String> choiceBoxTable;
     @FXML private TextField textFieldJDBC;
     private ArrayList<String> tables;
+    @FXML public void initialize() {
+
+        textFieldJDBC.setText("jdbc:sqlite:hospital.db");
+    }
+
     public String getJDBC() {
         String jdbc = textFieldJDBC.getText();
         return jdbc;
+    }
+    public void setJDBC() {
+        textFieldJDBC.setText("jdbc:sqlite:hospital.db");
     }
     public void setTables(ArrayList<String> tablesList) {
         tables = tablesList;

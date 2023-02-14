@@ -18,7 +18,7 @@
                <children>
                   <Label text="JDBC: " />
                   <TextField fx:id="textFieldJDBC" />
-                  <Button fx:id="buttonConnect" mnemonicParsing="false" text="Conectar" />
+                  <Button fx:id="buttonConnect" mnemonicParsing="false" text="Conectar" visible="false" />
                </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -31,7 +31,7 @@
                <children>
                   <Label text="Tablas: " />
                   <ChoiceBox fx:id="choiceBoxTable" prefWidth="150.0" />
-                  <Button fx:id="buttonLoad" text="Cargar" />
+                  <Button fx:id="buttonLoad" text="Cargar" visible="false" />
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

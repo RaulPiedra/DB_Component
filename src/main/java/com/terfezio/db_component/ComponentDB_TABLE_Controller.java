@@ -7,10 +7,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -75,8 +72,12 @@ public class ComponentDB_TABLE_Controller {
 
     public void setUpColumnsList() {
         tableView.getColumns().clear();
+        vBox.getChildren().clear();
+        Label label = new Label("Columnas:");
+        vBox.getChildren().add(label);
         for (int i= 0; i < columns.size(); i++) {
             CheckBox checkBox = new CheckBox(columns.get(i));
+            checkBox.setSelected(true);
             checkBoxes.add(checkBox);
             vBox.getChildren().add(checkBox);
 
