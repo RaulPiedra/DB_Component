@@ -5,7 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class ComponentDBController {
@@ -19,21 +18,16 @@ public class ComponentDBController {
     }
 
     public String getJDBC() {
-        String jdbc = textFieldJDBC.getText();
-        return jdbc;
+        return textFieldJDBC.getText();
     }
-    public void setJDBC() {
-        textFieldJDBC.setText("jdbc:sqlite:hospital.db");
-    }
+
     public void setTables(ArrayList<String> tablesList) {
         tables = tablesList;
-        System.out.println("Tables setted");
     }
     public String getSelectedTable() {
-        String selectedTable = choiceBoxTable.getSelectionModel().getSelectedItem();
-        return selectedTable;
+        return choiceBoxTable.getSelectionModel().getSelectedItem();
     }
-    public void loadTables() throws SQLException {
+    public void loadTables() {
 
         for (String table: tables) {
             choiceBoxTable.setItems(FXCollections.observableList(tables));

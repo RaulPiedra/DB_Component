@@ -1,17 +1,17 @@
 package com.terfezio.db_component;
 
 import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.util.Callback;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,7 +43,6 @@ public class ComponentDB_TABLE_Controller {
                 @Override
                 public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
 
-                    System.out.println(checkBox.getText());
                     String columnName = checkBox.getText();
                     tableColumns.get(columnName).setVisible(!tableColumns.get(columnName).isVisible());
 

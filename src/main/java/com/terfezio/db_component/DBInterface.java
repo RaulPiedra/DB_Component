@@ -4,12 +4,10 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class DBInterface {
-    private String urlConnection;
-    private Connection connection;
-    private DatabaseMetaData databaseMetaData;
+    private final Connection connection;
+    private final DatabaseMetaData databaseMetaData;
 
     public DBInterface(String urlConnection) throws SQLException {
-        this.urlConnection = urlConnection;
         connection = DriverManager.getConnection(urlConnection);
         databaseMetaData = connection.getMetaData();
     }
